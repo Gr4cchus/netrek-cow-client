@@ -36,8 +36,10 @@ BuildRequires: glibc-devel
 BuildRequires: glibc-headers 
 #BuildRequires: glibc-headers 
 BuildRequires: grep  
-BuildRequires: gzip 
-BuildRequires: hostname 
+BuildRequires: gzip
+%if 0%{?fedora} || 0%{?rhel} >= 7
+BuildRequires: hostname
+%endif # 0%{?fedora} || 0%{?rhel} >= 7
 BuildRequires: imlib2  
 BuildRequires: imlib2-devel 
 #BuildRequires: imlib2-devel  
