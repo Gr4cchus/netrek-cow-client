@@ -86,5 +86,14 @@ mv %{buildroot}/usr/games/%{name} %{buildroot}/%{_bindir}
 
 
 %changelog
+* Wed Feb  15 2017 Alex
+- added github source based on commit hash b/c lack of offcial release published
+- auto-br-rpmbuild generated BuildRequires
+- added libtool for ./autogen.sh functionality
+- explicitly stated autogen.sh location for precaution
+- fedora-developers suggestion of commenting out $RPM_BUILD_ROOT
+- moved location of the client binary from /usr/games/ /usr/bin/
+- changed %%{_datadir} to %%{_bindir} for redhat compliance
+- four BuildRequiries duplicates as a reminder that auto-br-rpmbuild specified i686 versions
 * Sun Feb  5 2017 Alex
 - 
