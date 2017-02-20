@@ -51,7 +51,10 @@ BuildRequires: libXpm
 BuildRequires: libXpm-devel 
 BuildRequires: libXt-devel 
 #BuildRequires: libXt-devel 
-BuildRequires: libXxf86vm        
+BuildRequires: libXxf86vm
+%if 0%{?rhel} == 6
+BuildRequires: dwz
+%endif # epel6 lacks dwz package
 
 
 %description
@@ -60,7 +63,6 @@ Netrek is a multi-player battle simulation with a Star Trek theme. As a player, 
 
 %prep
 %autosetup -n %{name}-%{commit0}
-
 
 
 %build
@@ -86,6 +88,8 @@ mv %{buildroot}/usr/games/%{name} %{buildroot}/%{_bindir}
 
 
 %changelog
+* Mon Feb  20 2017 Alex
+- added dwz conditional for rhel6. Not neccessary but serves as a reminder that a third party repo is required.
 * Wed Feb  15 2017 Alex
 - added github source based on commit hash b/c lack of offcial release published
 - auto-br-rpmbuild generated BuildRequires
